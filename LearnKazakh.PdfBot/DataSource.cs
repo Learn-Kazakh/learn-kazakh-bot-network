@@ -1,4 +1,4 @@
-﻿using LearnKazakh.PdfBot.Models.Dictionary;
+﻿using LearnKazakh.PdfBot.Models;
 using LearnKazakh.Shared.DTOs;
 using System.Net.Http.Json;
 
@@ -7,6 +7,14 @@ namespace LearnKazakh.PdfBot;
 public class DataSource
 {
     readonly HttpClient _httpClient;
+
+    private readonly string _alphabetCategoryId = "941c0ef8-e6aa-4bb0-ac6b-f9941d6151f2";
+
+    private readonly string _grammarCategoryId = "33941de7-7b48-479d-8990-53f3c15f9847";
+
+    private readonly string _numbersCategoryId = "d8d87b51-781f-4b80-b549-b3719c770436";
+
+    private readonly string _dailyLifeCategoryId = "4f5bf5e2-c4f7-40bf-b6a4-1f20cd0909ea";
 
     public DataSource()
     {
@@ -51,7 +59,7 @@ public class DataSource
         return vocabularyDtos;
     }
 
-    static CategoryGroup CreateCategoryGroup(IGrouping<string, VocabularyDto> group)
+    CategoryGroup CreateCategoryGroup(IGrouping<string, VocabularyDto> group)
     {
         return new CategoryGroup
         {
@@ -60,7 +68,7 @@ public class DataSource
         };
     }
 
-    static WordEntry CreateWordEntry(VocabularyDto dto)
+    WordEntry CreateWordEntry(VocabularyDto dto)
     {
         return new WordEntry
         {
@@ -71,7 +79,7 @@ public class DataSource
         };
     }
 
-    static ExampleSentence? CreateExampleSentence(VocabularyDto dto)
+    ExampleSentence? CreateExampleSentence(VocabularyDto dto)
     {
         if (dto.Examples == null || dto.Examples.Count == 0)
         {
@@ -84,5 +92,29 @@ public class DataSource
             Kazakh = firstExample.SentenceKazakh,
             Azerbaijani = firstExample.SentenceTranslation
         };
+    }
+
+    public async Task<List<Content>> LoadAlphabetAsync() => await LoadContentByCategoryAsync(_alphabetCategoryId);
+
+    public async Task<List<Content>> LoadNumbersAsync() => await LoadContentByCategoryAsync(_numbersCategoryId);
+
+    public async Task<List<Content>> LoadGrammarAsync() => await LoadContentByCategoryAsync(_grammarCategoryId);
+
+    public async Task<List<Content>> LoadDailyLifeAsync() => await LoadContentByCategoryAsync(_dailyLifeCategoryId);
+
+    async Task<List<Content>> LoadContentByCategoryAsync(string categoryId)
+    {
+        var response = await _httpClient.GetFromJsonAsync<ApiResponse<List<CategoryContentDto>>>($"content/by-category?categoryId={categoryId}");
+
+        return response?.Data != null ? CreateCategory(response.Data) : [];
+    }
+
+    List<Content> CreateCategory(List<CategoryContentDto> data)
+    {
+        return [.. data.Select(cc => new Content
+        {
+            SectionTitle = cc.SectionTitle,
+            Contents = cc.ContentTexts
+        })];
     }
 }

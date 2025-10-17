@@ -1,4 +1,4 @@
-﻿namespace LearnKazakh.PdfBot.Models.Dictionary;
+﻿namespace LearnKazakh.PdfBot.Models;
 
 public class ExampleSentence
 {

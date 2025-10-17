@@ -1,6 +1,6 @@
 ﻿using LearnKazakh.PdfBot.Configuration;
 using LearnKazakh.PdfBot.Documents.Base;
-using LearnKazakh.PdfBot.Models.Dictionary;
+using LearnKazakh.PdfBot.Models;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
