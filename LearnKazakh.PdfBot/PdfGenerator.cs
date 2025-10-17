@@ -9,6 +9,7 @@ namespace LearnKazakh.PdfBot;
 public class PdfGenerator
 {
     private readonly DataSource _dataSource = new DataSource();
+
     private readonly AppParameter _appParameter = new AppParameter();
 
     public async Task<List<PdfResponse>> GenerateAsync(string[] args)
@@ -45,22 +46,26 @@ public class PdfGenerator
 
         if (_appParameter.GenerateAlphabet)
         {
-            documents.Add(new AlphabetDocument());
+            List<Content> contents = await _dataSource.LoadAlphabetAsync();
+            documents.Add(new AlphabetDocument(contents));
         }
 
         if (_appParameter.GenerateDailyLife)
         {
-            documents.Add(new DailyLifeDocument());
+            List<Content> contents = await _dataSource.LoadDailyLifeAsync();
+            documents.Add(new DailyLifeDocument(contents));
         }
 
         if (_appParameter.GenerateGrammar)
         {
-            documents.Add(new GrammarDocument());
+            List<Content> contents = await _dataSource.LoadGrammarAsync();
+            documents.Add(new GrammarDocument(contents));
         }
 
         if (_appParameter.GenerateNumbers)
         {
-            documents.Add(new NumbersDocument());
+            List<Content> contents = await _dataSource.LoadNumbersAsync();
+            documents.Add(new NumbersDocument(contents));
         }
 
         return documents;

@@ -1,11 +1,14 @@
 ﻿using LearnKazakh.PdfBot.Composers;
 using LearnKazakh.PdfBot.Documents.Base;
+using LearnKazakh.PdfBot.Models;
 using QuestPDF.Infrastructure;
 
 namespace LearnKazakh.PdfBot.Documents;
 
-public class NumbersDocument : BaseDocument
+public class NumbersDocument(List<Content> contents) : BaseDocument
 {
+    private readonly List<Content> _contents = contents;
+
     public override string DocumentTitle => "Rəqəmlər və Saylar";
 
     public override string DocumentDescription => "1-dən 1000-ə qədər";
@@ -14,6 +17,6 @@ public class NumbersDocument : BaseDocument
 
     public override void ComposeContent(IContainer container)
     {
-        CommonComposer.ComposeNotSupportedYet(container, "Rəqəmlər");
+        CommonComposer.ComposeContent(container, _contents, ComposeComments);
     }
 }

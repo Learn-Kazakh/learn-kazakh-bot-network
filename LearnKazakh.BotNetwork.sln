@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11109.219 d18.0-oob
+VisualStudioVersion = 18.0.11109.219
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnKazakh.PdfBot", "LearnKazakh.PdfBot\LearnKazakh.PdfBot.csproj", "{4ABADD95-823D-4A82-84D5-947C832768F8}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnKazakh.Bot.Core", "LearnKazakh.Bot.Core\LearnKazakh.Bot.Core.csproj", "{45645354-1B4D-41D6-8471-EA5604D9E220}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnKazakh.Shared", "..\learn-kazakh-production\src\shared\LearnKazakh.Shared\LearnKazakh.Shared.csproj", "{A4246EB4-2B7A-8E21-4516-98010336A845}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnKazakh.PdfBot.Environment", "LearnKazakh.PdfBot.Environment\LearnKazakh.PdfBot.Environment.csproj", "{B9D7687B-810A-400E-8BDA-CDFB85123953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,18 @@ Global
 		{A4246EB4-2B7A-8E21-4516-98010336A845}.Release|x64.Build.0 = Release|Any CPU
 		{A4246EB4-2B7A-8E21-4516-98010336A845}.Release|x86.ActiveCfg = Release|Any CPU
 		{A4246EB4-2B7A-8E21-4516-98010336A845}.Release|x86.Build.0 = Release|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Debug|x64.Build.0 = Debug|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Debug|x86.Build.0 = Debug|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Release|x64.ActiveCfg = Release|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Release|x64.Build.0 = Release|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Release|x86.ActiveCfg = Release|Any CPU
+		{B9D7687B-810A-400E-8BDA-CDFB85123953}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
