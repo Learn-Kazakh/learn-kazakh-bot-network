@@ -9,6 +9,9 @@ public class Worker : BackgroundService
     private readonly PdfGenerator _generator = new();
     private readonly Dictionary<ScheduleModel, string[]> _scheduleToArgument = new()
     {
+        // first one is intended just for test purposes.
+        //[new ScheduleModel { DayOfWeek = DayOfWeek.Friday, Hour = 23, Minute = 17 }] = ["-d", "-g", "-n", "-a", "-dl"],
+
         [new ScheduleModel { DayOfWeek = DayOfWeek.Monday, Hour = 9, Minute = 0 }] = ["--dictionary"],
         [new ScheduleModel { DayOfWeek = DayOfWeek.Wednesday, Hour = 9, Minute = 0 }] = ["--alphabet"],
         [new ScheduleModel { DayOfWeek = DayOfWeek.Friday, Hour = 9, Minute = 0 }] = ["--grammar"],

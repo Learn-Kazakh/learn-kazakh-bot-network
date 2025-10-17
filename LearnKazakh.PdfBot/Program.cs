@@ -1,7 +1,7 @@
 using DotNetEnv;
 using LearnKazakh.PdfBot;
 
-var values = Env.Load();
+Env.Load();
 
 var builder = Host.CreateApplicationBuilder(args);
 
